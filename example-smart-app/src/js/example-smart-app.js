@@ -21,11 +21,12 @@
                       }
                     }
                   });
+        var ord = smart.patient.api.fetchAll({type: 'MedicationOrder'});
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, ord).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
-          $('#response-info').html("<p>Patient information: " + JSON.stringify(patient) + "</p><br/><p>Observation information: " + JSON.stringify(obv) + "</p>");
+        $.when(pt, obv, ord).done(function(patient, obv, ord) {
+          $('#response-info').html("<h4>Patient information: </h4><p> " + JSON.stringify(patient) + "</p><br/><h4>Observation information: </h4><p>" + JSON.stringify(obv) + "</p><br/><h4>Medication Order information: </h4><p>" + JSON.stringify(ord) + "</p>");
           $('#response-info').show();
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
