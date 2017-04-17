@@ -26,6 +26,7 @@
 
         $.when(pt, obv).done(function(patient, obv) {
           $('#response-info').html = "<p>Patient information: " + patient.toString() + "</p><br/><p>Observation information: " + obv.toString() + "</p>";
+          $('#response-info').show();
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
