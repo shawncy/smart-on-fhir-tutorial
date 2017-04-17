@@ -25,7 +25,7 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          $('#response-info').html("<p>Patient information: " + patient.toString() + "</p><br/><p>Observation information: " + obv.toString() + "</p>");
+          $('#response-info').html("<p>Patient information: " + JSON.stringify(patient) + "</p><br/><p>Observation information: " + JSON.stringify(obj) + "</p>");
           $('#response-info').show();
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
