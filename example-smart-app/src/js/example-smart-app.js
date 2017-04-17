@@ -21,7 +21,7 @@
                       }
                     }
                   });
-        var ord = smart.patient.api.fetchAll({type: 'MedicationOrder'});
+        var ord = smart.patient.api.search({type: 'MedicationOrder'});
 
         $.when(pt, obv, ord).fail(onError);
 
