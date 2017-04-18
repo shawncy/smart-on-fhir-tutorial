@@ -144,10 +144,6 @@
       return undefined;
     }
   }
-  
-  function launchUOUI() {
-    window.location.href = "https://qa-tenant01.atlasmedical.com";
-  }
 
   window.drawVisualization = function(p) {
     $('#holder').show();
