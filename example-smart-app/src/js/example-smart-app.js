@@ -22,12 +22,14 @@
                     }
                   });
         var ord = smart.patient.api.search({type: 'MedicationOrder'});
+        var diag = smart.patient.api.search({type: 'DiagnosticReport'});
+        var enc = smart.patient.api.search({type: 'Encounter'});
+        var proc = smart.patient.api.search({type: 'Procedure'});
 
-        $.when(pt, obv, ord).fail(onError);
+        $.when(pt, obv, ord, diag, enc, proc).fail(onError);
 
-        $.when(pt, obv, ord).done(function(patient, obv, ord) {
-          $('#response-info').html("<h4>Patient information: </h4><p> " + JSON.stringify(patient) + "</p><br/><h4>Observation information: </h4><p>" + JSON.stringify(obv) + "</p><br/><h4>Medication Order information: </h4><p>" + JSON.stringify(ord) + "</p>");
-          $('#response-info').show();
+        $.when(pt, obv, ord, diag, enc, proc).done(function(patient, obv, ord, diag, enc, proc) {
+          $('#response-info').html("<h4>Patient information: </h4><p> " + JSON.stringify(patient) + "</p><br/><h4>Observation information: </h4><p>" + JSON.stringify(obv) + "</p><br/><h4>Medication Order information: </h4><p>" + JSON.stringify(ord) + "</p><br/><h4>Diagnostic Report information: </h4><p>" + JSON.stringify(diag) + "</p><br/><h4>Encounter information: </h4><p>" + JSON.stringify(enc) + "</p><br/><h4>Procedure information: </h4><p>" + JSON.stringify(proc) + "</p>");
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
