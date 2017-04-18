@@ -161,7 +161,7 @@
   };
   
   window.launchUOUI = function() {
-    window.location.href = "https://qa-tenant01.atlasmedical.com";
+    window.open("https://qa-tenant01.atlasmedical.com");
   };
 
 })(window);
