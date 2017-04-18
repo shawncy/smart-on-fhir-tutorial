@@ -159,5 +159,9 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
   };
+  
+  window.launchUOUI = function() {
+    window.location.href = "https://qa-tenant01.atlasmedical.com";
+  };
 
 })(window);
